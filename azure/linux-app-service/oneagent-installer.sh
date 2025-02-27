@@ -37,10 +37,10 @@ run() {
     DT_ENDPOINT=$(echo "${DT_ENDPOINT%/}")
 
     wget -O "$INSTALLER_DOWNLOAD_PATH" -q "$DT_ENDPOINT/$INSTALLER_URL_SUFFIX?Api-Token=$DT_API_TOKEN&flavor=$DT_FLAVOR&include=$DT_INCLUDE"
-    sh "$INSTALLER_DOWNLOAD_PATH"
+    sh "$INSTALLER_DOWNLOAD_PATH" /home
 
     # Inject variable into the proccess and run the actual application proccess
-    LD_PRELOAD="/opt/dynatrace/oneagent/agent/lib64/liboneagentproc.so" $START_APP_CMD
+    LD_PRELOAD="/home/dynatrace/oneagent/agent/lib64/liboneagentproc.so" $START_APP_CMD
 
 }
 
