@@ -40,7 +40,7 @@ run() {
     sh "$INSTALLER_DOWNLOAD_PATH" /home
 
     # Inject variable into the proccess and run the actual application proccess
-    LD_PRELOAD="/home/dynatrace/oneagent/agent/lib64/liboneagentproc.so" bash "$START_APP_CMD"
+    LD_PRELOAD="/home/dynatrace/oneagent/agent/lib64/liboneagentproc.so" bash -c "$START_APP_CMD"
 
 }
 
